@@ -1,0 +1,4 @@
+php-build/*
+php-src/*
+!php-src/tar
+php-src/tar/*
