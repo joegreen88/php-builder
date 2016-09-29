@@ -31,6 +31,15 @@ You could then verify the build by running `./php-build/5.6.25/bin/php --version
 
 The php.ini would be loaded from `./php-ini/7.0.11/php.ini`.
 
+## Activate PHP
+
+Add the activate script to your shell in `.bash_profile` or `.bashrc` with `source /path/to/php-builder/activate.sh`.
+You only need to do this once.
+
+Now you can change the active php version at any time by calling `php-version <version>`.
+
+For example, set the global php version to 5.6.25 with `php-version 5.6.25`.
+
 ## Clean
 
 Run `./clean.sh <version>` to free up disk space by deleting the source code and tarball for the given php version.
