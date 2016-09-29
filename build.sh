@@ -3,7 +3,7 @@
 this_dir="$(cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd )"
 php_src_dir="$this_dir/php-src"
 
-# Usage: ./build.sh <version> [ configure parameters ...]
+# Usage: ./build.sh <version>
 # This script assumes that the php source is already downloaded to ./php-src/<version>/
 
 if [ -z "$1" ]; then
