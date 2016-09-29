@@ -9,6 +9,8 @@ if [ -z "$1" ]; then
     echo "Cleaning the php-src directory"
     rm -rf "$this_dir/php-src"
     mkdir -p "$this_dir/php-src/tar"
+    touch "$this_dir/php-src/.gitkeep"
+    touch "$this_dir/php-src/tar/.gitkeep"
 else
     version_id="$1"
     echo "Removing the source files and/or tarball for version $version_id"
