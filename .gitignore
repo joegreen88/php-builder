@@ -1,5 +1,7 @@
 php-build/*
 !php-build/.gitkeep
+php-conf/*
+!php-conf/.gitkeep
 php-src/*
 !php-src/.gitkeep
 !php-src/tar

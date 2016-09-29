@@ -27,7 +27,9 @@ For example, to build PHP 5.6.25 you would run `./build.sh 5.6.25`.
 
 This would build to `./php-build/5.6.25`.
 
-You could then verify the build by running `./php-build/5.6.25/bin/php --version` 
+You could then verify the build by running `./php-build/5.6.25/bin/php --version`.
+
+The php.ini would be loaded from `./php-ini/7.0.11/php.ini`.
 
 ## Clean
 
