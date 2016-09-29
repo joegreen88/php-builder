@@ -32,8 +32,10 @@ build_cmd="./configure --prefix=$build_dir \
     --with-pear \
     --with-pdo-mysql \
     --with-openssl=/usr/local/opt/openssl"
+
 #echo "$build_cmd"
 
 cd "$version_dir"
 $build_cmd
-make && echo "PHP successfully installed into $build_dir"
+make
+make install && echo "PHP successfully installed into $build_dir"
