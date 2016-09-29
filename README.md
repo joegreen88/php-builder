@@ -17,7 +17,7 @@ Run `./download.sh <version>` to download and extract the php source code.
 
 For example, to download PHP 5.6.25 you would run `./download.sh 5.6.25`.
 
-This would extract the source code to './php-src/5.6.25'.
+This would extract the source code to `./php-src/5.6.25`.
 
 ## Build PHP
 
