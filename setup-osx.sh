@@ -5,3 +5,4 @@
 
 brew install openssl
 brew install libpng
+brew install autoconf
