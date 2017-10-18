@@ -3,6 +3,9 @@
 this_dir="$(cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd )"
 php_src_dir="$this_dir/php-src"
 
+# Detect what OS type is it.
+os="$(uname -s)"
+
 # Usage: ./build.sh <version>
 # This script assumes that the php source is already downloaded to ./php-src/<version>/
 
@@ -35,19 +38,34 @@ if ! [ -e "$ini_dir/php.ini" ]; then
     chmod 644 "$ini_dir/php.ini"
 fi
 
-build_cmd="./configure --prefix=$build_dir \
-    --enable-bcmath \
-    --enable-mbstring \
-    --enable-pcntl \
-    --enable-sockets \
-    --enable-zip \
-    --with-curl \
-    --with-gd \
-    --with-mysqli \
-    --with-pear \
-    --with-pdo-mysql \
-    --with-openssl=/usr/local/opt/openssl \
-    --with-config-file-path=$ini_dir"
+if [ "$os" == "Darwin" ]; then
+    build_cmd="./configure --prefix=$build_dir \
+        --enable-bcmath \
+        --enable-mbstring \
+        --enable-pcntl \
+        --enable-sockets \
+        --enable-zip \
+        --with-curl \
+        --with-gd \
+        --with-mysqli \
+        --with-pear \
+        --with-pdo-mysql \
+        --with-openssl=/usr/local/opt/openssl \
+        --with-config-file-path=$ini_dir"
+elif [ "$os" == "Linux" ]; then
+    build_cmd="./configure --prefix=$build_dir \
+        --enable-bcmath \
+        --enable-mbstring \
+        --enable-pcntl \
+        --enable-sockets \
+        --enable-zip \
+        --with-curl \
+        --with-gd \
+        --with-mysqli \
+        --with-pear \
+        --with-pdo-mysql \
+        --with-config-file-path=$ini_dir"
+fi
 
 #echo "$build_cmd"
 
