@@ -3,7 +3,7 @@ php-builder
 
 The aim of this repo is to make it a bit easier to build php from source.
 
-I've developed and tested these scripts on OSX el capitan with homebrew installed.
+I've developed and tested these scripts on OSX el capitan with homebrew installed and Ubuntu 16.04.
 
 ## Setup
 
@@ -49,6 +49,7 @@ Run `./clean.sh` without the version to delete all php sources and tarballs.
 ## Versions tested
 
  - 7.0.11 **✓**
+ - 7.1.3 **✓**
 
 ## Why do it?
 
