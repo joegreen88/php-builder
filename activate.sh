@@ -9,7 +9,15 @@ php-version() {
 
     # Usage: php-version <version>
     # This script assumes that the php version is already built in ./php-build/<version>
-
+    
+    case "$1" in
+        list|ls|--list)
+            ls "$this_dir/php-build"
+            return 0
+            ;;
+        *)
+    esac
+    
     if [ -z "$1" ]; then
         echo " !! Version ID is a required argument !! "
         exit

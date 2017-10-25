@@ -40,6 +40,10 @@ Now you can change the active php version at any time by calling `php-version <v
 
 For example, set the global php version to 5.6.25 with `php-version 5.6.25`.
 
+You can check which PHP versions are installed with php-builder by running `php-version list`.
+
+You can check the active PHP version by running `php --version`.
+
 ## Clean
 
 Run `./clean.sh <version>` to free up disk space by deleting the source code and tarball for the given php version.
