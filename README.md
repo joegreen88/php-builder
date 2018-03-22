@@ -31,6 +31,29 @@ You could then verify the build by running `./php-build/5.6.25/bin/php --version
 
 The php.ini would be loaded from `./php-conf/7.0.11/php.ini`.
 
+### Build Arguments
+
+You can add arguments to the php build via config files.
+This method can be used to compile with additional extensions.
+
+For example, to enable the sysvsem extension on all new PHP 7 builds,
+create a file called `7` in the *buildargs* directory with the following contents:
+
+    --enable-sysvsem
+
+You can add multiple build arguments as if you were using them on the command line, like so:
+
+    --enable-sysvsem --enable-sysvshm --enable-sysvmsg
+
+You can also choose to apply build arguments to a specific minor version or patch if you want to. 
+
+For example, to install exif extension for new PHP 7.0.11 builds only,
+create a file called `7.0.11` in the *buildargs* directory with the following contents:
+
+    --enable-exif
+
+Remember to build PHP after the configuration files are in place for the build arguments to take effect.
+
 ## Activate PHP
 
 Add the activate script to your shell in `.bash_profile` or `.bashrc` with `source /path/to/php-builder/activate.sh`.

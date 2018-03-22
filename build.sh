@@ -67,8 +67,35 @@ elif [ "$os" == "Linux" ]; then
         --with-config-file-path=$ini_dir"
 fi
 
+# add custom buildargs from buildargs directory
+# e.g. if building php 7.2.12 then look for files called 7, 7.2, and 7.2.12 in that order
+
+version_id_major=${version_id%%.*}
+version_id_minor=${version_id%.*}
+
+customBuildArgs=""
+
+for arg_file_var in version_id_major version_id_minor version_id; do
+    eval arg_file="\$$arg_file_var"
+    arg_file_path="$this_dir/buildargs/$arg_file"
+    if [ -s "$arg_file_path" ] && [ -r "$arg_file_path" ]; then
+        echo "Fetching custom build arguments from $arg_file_path"
+        if [ -z "$customBuildArgs" ]; then
+            customBuildArgs=$(cat "$arg_file_path")
+        else
+            customBuildArgs="$customBuildArgs $(cat "$arg_file_path")"
+        fi
+    fi
+done
+
+if [ ! -z "$customBuildArgs" ]; then
+    echo "Applying custom build arguments: $customBuildArgs"
+    build_cmd="$build_cmd $customBuildArgs"
+fi
+
 #echo "$build_cmd"
 
+# Run the php build
 cd "$version_dir"
 $build_cmd
 make clean
