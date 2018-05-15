@@ -29,7 +29,7 @@ This would build to `./php-build/5.6.25`.
 
 You could then verify the build by running `./php-build/5.6.25/bin/php --version`.
 
-The php.ini would be loaded from `./php-conf/7.0.11/php.ini`.
+The php.ini would be loaded from `./php-conf/5.6.25/php.ini`.
 
 ### Build Arguments
 
