@@ -12,15 +12,18 @@ php-version() {
     
     case "$1" in
         list|ls|--list)
-            ls "$this_dir/php-build"
+            ls "$php_build_dir"
             return 0
             ;;
         *)
     esac
     
     if [ -z "$1" ]; then
-        echo " !! Version ID is a required argument !! "
-        exit
+        php_executable_path="$(command -v php)"
+        echo "Active: $php_executable_path"
+        echo "Available:"
+        ls "$php_build_dir"
+        return 0
     fi
     version_id="$1"
 
